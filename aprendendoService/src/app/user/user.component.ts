@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { LogginService } from '../logging.service';
 
 @Component({
   selector: 'app-user',
@@ -15,9 +16,9 @@ export class UserComponent {
   constructor() { }
 
   onSetTo(status: string) {
-    this.statusChanged.emit({ id: this.id, newStatus: status });
-    console.log('Foi alterado status do usuário para ' + status);
-    
+    this.statusChanged.emit({ id: this.id, newStatus: status });    
+    const service = new LogginService()
+    service.logStatusChange(status);
   }
 
 }

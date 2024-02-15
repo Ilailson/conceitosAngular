@@ -15,7 +15,8 @@ export class NewUserComponent{
     this.userCreated.emit({
       name: userName,
       status: userStatus
-    })
+    });
+    console.log('Novo usuário criado ' + userName);
   }
 
 }
