@@ -6,7 +6,7 @@ import { UserService } from '../user.service';
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css'],
-  providers: [LogginService, UserService]
+  providers: [LogginService]
 })
 export class UserComponent {
   // informações estão vindo do componente pai

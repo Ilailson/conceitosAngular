@@ -6,7 +6,7 @@ import { UserService } from '../user.service';
   selector: 'app-new-user',
   templateUrl: './new-user.component.html',
   styleUrls: ['./new-user.component.css'],
-  providers: [LogginService, UserService]
+  providers: [LogginService]
 })
 export class NewUserComponent{
 
