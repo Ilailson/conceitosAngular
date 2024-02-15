@@ -1,25 +1,24 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { LogginService } from '../logging.service';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-new-user',
   templateUrl: './new-user.component.html',
   styleUrls: ['./new-user.component.css'],
-  providers: [LogginService]
+  providers: [LogginService, UserService]
 })
 export class NewUserComponent{
 
-  @Output() userCreated = new EventEmitter<{ name: string, status: string }>();
 
-  constructor(private loggingService: LogginService) { }
+// injeção de dependencia
+  constructor(
+    private loggingService: LogginService,
+    private userService: UserService
+    ) { }
 
   onCreateUser(userName: string, userStatus: string) {
-    this.userCreated.emit({
-      name: userName,
-      status: userStatus
-    });
+    this.userService.createUser(userName, userStatus)
     this.loggingService.logStatusChange(userName)
-    // console.log('Novo usuário criado ' + userName);
   }
-
 }
