@@ -4,7 +4,8 @@ import { LogginService } from '../logging.service';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
-  styleUrls: ['./user.component.css']
+  styleUrls: ['./user.component.css'],
+  providers: [LogginService]
 })
 export class UserComponent {
 
@@ -13,12 +14,12 @@ export class UserComponent {
 
   @Output() statusChanged = new EventEmitter<{ id: number, newStatus: string }>();
 
-  constructor() { }
+  // injeção de dependencia no construtor
+  constructor(private loggingService: LogginService) { }
 
   onSetTo(status: string) {
-    this.statusChanged.emit({ id: this.id, newStatus: status });    
-    const service = new LogginService()
-    service.logStatusChange(status);
+    this.statusChanged.emit({ id: this.id, newStatus: status });   
+    this.loggingService.logStatusChange(status) 
   }
 
 }
