@@ -5,8 +5,7 @@ import { UserService } from '../user.service';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
-  styleUrls: ['./user.component.css'],
-  providers: [LogginService]
+  styleUrls: ['./user.component.css']
 })
 export class UserComponent {
   // informações estão vindo do componente pai
@@ -16,14 +15,14 @@ export class UserComponent {
 
   // injeção de dependencia no construtor
   constructor(
-    private loggingService: LogginService,
+    // private loggingService: LogginService,
     private userService: UserService
     ) { }
 
   onSetTo(status: string) {
     this.userService.updateStatus(this.id, status)
 
-    this.loggingService.logStatusChange(status) 
+   
   }
 
 }

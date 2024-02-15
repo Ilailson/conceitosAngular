@@ -5,8 +5,7 @@ import { UserService } from '../user.service';
 @Component({
   selector: 'app-new-user',
   templateUrl: './new-user.component.html',
-  styleUrls: ['./new-user.component.css'],
-  providers: [LogginService]
+  styleUrls: ['./new-user.component.css']
 })
 export class NewUserComponent{
 
@@ -19,6 +18,6 @@ export class NewUserComponent{
 
   onCreateUser(userName: string, userStatus: string) {
     this.userService.createUser(userName, userStatus)
-    this.loggingService.logStatusChange(userName)
+    // this.loggingService.logStatusChange(userName)
   }
 }

@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { NewUserComponent } from './new-user/new-user.component';
 import { UserComponent } from './user/user.component';
+import { LogginService } from './logging.service';
+import { UserService } from './user.service';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,7 @@ import { UserComponent } from './user/user.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [LogginService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
