@@ -1,0 +1,39 @@
+<div class="container">
+
+  <!-- New Student -->
+  <div class="row">
+    <div class="col-12">
+      <h1>Cadastro de Alunos</h1>
+      <hr>
+      <label for="">Nome do Aluno</label>
+      <input type="text" class="form-control mb-2" [(ngModel)]="newStudentName">
+      <label for="">Observacao</label>
+      <input type="text" class="form-control" [(ngModel)]="newStudentDescription">
+      <br>
+      <button class="btn btn-success mr-2" (click)="addApproved()">Adicionar Aprovado</button>
+      <button class="btn btn-secondary" (click)="addSubstitute()">Adicionar Suplente</button>
+    </div>
+  </div>
+
+  <!-- Students List -->
+  <div class="row mt-4">
+    <div class="col-12">
+      <ul class="list-group">
+        <li href="" *ngFor="let student of students"
+            [ngClass]="{
+              'list-group-item': true,
+              'mb-2': true,
+              'list-group-item-success' : student.type === 'approved',
+              'list-group-item-secondary' : student.type === 'substitute'
+            }">
+            <div class="d-flex w-100 justify-content-between">
+              <strong>{{ student.name }}</strong>
+              <small>{{ student.description }}</small>
+            </div>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+
+</div>
