@@ -4,10 +4,14 @@ import { CommonModule } from '@angular/common'; // Importe o módulo CommonModul
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { StudentRegistryComponent } from './student-registry/student-registry.component';
+import { StudentComponent } from './student/student.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    StudentRegistryComponent,
+    StudentComponent
   ],
   imports: [
     BrowserModule,
