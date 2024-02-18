@@ -11,19 +11,19 @@ export class StudentRegistryComponent implements OnInit {
   @Output() subtituteCreated = new EventEmitter<{name: string, description: string}>();
 
 
-  newStudentName = '';
+  // newStudentName = '';
   newStudentDescription = '';
 
-  addApproved() {
+  addApproved(nameInput: HTMLInputElement) {
     this.approvedCreated.emit({
-      name: this.newStudentName,
+      name: nameInput.value,
       description: this.newStudentDescription
     });
   }
 
-  addSubstitute() {
+  addSubstitute(nameInput: HTMLInputElement) {
     this.subtituteCreated.emit({
-      name: this.newStudentName,
+      name: nameInput.value,
       description: this.newStudentDescription
     });
   }

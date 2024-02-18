@@ -4,11 +4,11 @@
     <h1>Cadastro de Alunos</h1>
     <hr>
     <label for="">Nome do Aluno</label>
-    <input type="text" class="form-control mb-2" [(ngModel)]="newStudentName">
+    <input type="text" class="form-control mb-2" #studentNameInput>
     <label for="">Observacao</label>
     <input type="text" class="form-control" [(ngModel)]="newStudentDescription">
     <br>
-    <button class="btn btn-success mr-2" (click)="addApproved()">Adicionar Aprovado</button>
-    <button class="btn btn-secondary" (click)="addSubstitute()">Adicionar Suplente</button>
+    <button class="btn btn-success mr-2" (click)="addApproved(studentNameInput)">Adicionar Aprovado</button>
+    <button class="btn btn-secondary" (click)="addSubstitute(studentNameInput)">Adicionar Suplente</button>
   </div>
 </div>
