@@ -10,4 +10,22 @@ export class AppComponent {
   //2 Preenchendo os dados no componente pai com mesma informação do filho
   students = [{ type: 'approved', name: 'José', description: 'Masculino' },
   { type: 'approved', name: 'Maria', description: 'Feminino' }];
+
+
+  aprovedAdded( studentData: { name: string, description: string }) {
+    this.students.push({
+      type: 'approved',
+      name: studentData.name,
+      description: studentData.description
+    })
+  }
+
+  substituteAdd(studentData: { name: string, description: string }) {
+    this.students.push({
+      type: 'substitute',
+      name: studentData.name,
+      description: studentData.description
+    })
+  }
+
 }

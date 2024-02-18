@@ -1,6 +1,9 @@
 <div class="container">
 
-  <app-student-registry></app-student-registry>
+  <app-student-registry
+  (approvedCreated)="aprovedAdded($event)"
+  (subtituteCreated)="substituteAdd($event)"
+   ></app-student-registry>
 
 
   <!-- Students List -->

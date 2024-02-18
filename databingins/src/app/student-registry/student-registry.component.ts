@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-student-registry',
@@ -7,23 +7,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudentRegistryComponent implements OnInit {
 
+  @Output() approvedCreated = new EventEmitter<{name: string, description: string}>();
+  @Output() subtituteCreated = new EventEmitter<{name: string, description: string}>();
+
+
   newStudentName = '';
   newStudentDescription = '';
 
   addApproved() {
-    // this.students.push({
-    //   type: 'approved',
-    //   name: this.newStudentName,
-    //   description: this.newStudentDescription
-    // })
+    this.approvedCreated.emit({
+      name: this.newStudentName,
+      description: this.newStudentDescription
+    });
   }
 
   addSubstitute() {
-    // this.students.push({
-    //   type: 'substitute',
-    //   name: this.newStudentName,
-    //   description: this.newStudentDescription
-    // })
+    this.subtituteCreated.emit({
+      name: this.newStudentName,
+      description: this.newStudentDescription
+    });
   }
 
   ngOnInit(): void {
