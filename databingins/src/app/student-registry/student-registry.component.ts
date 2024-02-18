@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-student-registry',
@@ -12,19 +12,21 @@ export class StudentRegistryComponent implements OnInit {
 
 
   // newStudentName = '';
-  newStudentDescription = '';
+  // studentDescriptionInput = '';
 
+  @ViewChild('studentDescriptionInput')
+  studentDescriptionInput!: ElementRef;
   addApproved(nameInput: HTMLInputElement) {
     this.approvedCreated.emit({
       name: nameInput.value,
-      description: this.newStudentDescription
+      description: this.studentDescriptionInput.nativeElement.value
     });
   }
 
   addSubstitute(nameInput: HTMLInputElement) {
     this.subtituteCreated.emit({
       name: nameInput.value,
-      description: this.newStudentDescription
+      description: this.studentDescriptionInput.nativeElement.value
     });
   }
 

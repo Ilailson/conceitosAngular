@@ -6,9 +6,10 @@
     <label for="">Nome do Aluno</label>
     <input type="text" class="form-control mb-2" #studentNameInput>
     <label for="">Observacao</label>
-    <input type="text" class="form-control" [(ngModel)]="newStudentDescription">
+    <!-- <input type="text" class="form-control" [(ngModel)]="newStudentDescription"> -->
+    <input type="text" class="form-control" #studentDescriptionInput>
     <br>
     <button class="btn btn-success mr-2" (click)="addApproved(studentNameInput)">Adicionar Aprovado</button>
     <button class="btn btn-secondary" (click)="addSubstitute(studentNameInput)">Adicionar Suplente</button>
-  </div>
+  </div>w
 </div>
