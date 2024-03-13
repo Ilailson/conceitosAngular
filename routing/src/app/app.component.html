@@ -4,13 +4,13 @@
     <div class="col-12 col-sm-10 col-md-8">
       <ul class="nav nav-tabs">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Produtos</a>
+          <a class="nav-link" routerLink="/produtos">Produtos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Fornecedores</a>
+          <a class="nav-link" [routerLink]="['/fornecedores']">Fornecedores</a>
         </li>
       </ul>
     </div>
