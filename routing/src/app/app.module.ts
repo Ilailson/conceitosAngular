@@ -15,7 +15,8 @@ import { ProductsService } from './products/products.service';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'produtos', component: ProductsComponent },
-  { path: 'fornecedores', component: SupplierComponent }
+  { path: 'fornecedores', component: SuppliersComponent },
+  { path: 'fornecedores/:id', component: SupplierComponent }
 ]
 
 @NgModule({
