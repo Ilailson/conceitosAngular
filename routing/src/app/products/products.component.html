@@ -1,12 +1,15 @@
 <div class="row">
     <div class="col-12 col-sm-4">
         <div class="list-group">
-            <a href="#" class="list-group-item"
+            <a  [routerLink]="['/produtos', 5, 'editar']"
+                [queryParams]="{permiteEditar: '1'}"
+                fragment="carregando"
+                class="list-group-item"
                 *ngFor="let product of products">
                 {{ product.name }}
             </a>
         </div>
-    </div>
+    </div> 
 
     <div class="col-12 col-sm-4">
         <app-edit-product></app-edit-product>
