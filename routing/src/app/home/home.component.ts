@@ -13,9 +13,12 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  loadProducts(): void {
+  loadProducts(id: number): void {
     //algum calculo
-    this.router.navigate(['/produtos']);
+    this.router.navigate(['/produtos', id, 'editar'], {
+      queryParams: { permiteEditar: '1'},
+      fragment: 'Carregando'
+    });
   }
 
 }
