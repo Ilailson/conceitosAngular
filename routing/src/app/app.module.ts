@@ -14,11 +14,14 @@ import { ProductsService } from './products/products.service';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'produtos', component: ProductsComponent },
-  { path: 'produtos/:id', component: ProductComponent },
-  { path: 'produtos/:id/editar', component: EditProductComponent },
-  { path: 'fornecedores', component: SuppliersComponent },
-  { path: 'fornecedores/:id/:name', component: SupplierComponent }
+  { path: 'produtos', component: ProductsComponent, children: [
+      { path: ':id', component: ProductsComponent },
+      { path: ':id/editar', component: EditProductComponent },
+  ] },
+  { path: 'fornecedores', component: SuppliersComponent, children: [
+    { path: ':id/:name', component: SupplierComponent }
+  ] },
+  
 ]
 
 @NgModule({
