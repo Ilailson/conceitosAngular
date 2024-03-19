@@ -2,7 +2,7 @@
     <div class="col-12 col-sm-4">
         <div class="list-group">
             <a  [routerLink]="['/produtos', product.id]"
-                [queryParams]="{permiteEditar: '1'}"
+                [queryParams]="{permiteEditar: product.id == 1 ? '1': '0'}"
                 fragment="carregando"
                 class="list-group-item"
                 *ngFor="let product of products">

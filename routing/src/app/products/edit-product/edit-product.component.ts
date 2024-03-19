@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../products.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-edit-product',
@@ -11,6 +11,7 @@ export class EditProductComponent implements OnInit {
   product?: {id: number, name: string, status: string};
   productName? = '';
   productStatus? = '';
+  allowEdit = false;
 
   constructor(
     private productsService: ProductsService,
@@ -21,7 +22,11 @@ export class EditProductComponent implements OnInit {
     // console.log(this.route.snapshot.queryParams)
     // console.log(this.route.snapshot.fragment)
 
-    this.route.queryParams.subscribe();
+    this.route.queryParams.subscribe(
+      (params: Params) =>{
+        this.allowEdit = params['permiteEditar'] == '1';
+      }
+    );  
     this.route.fragment.subscribe();
 
     this.product = this.productsService.getProduct(1);

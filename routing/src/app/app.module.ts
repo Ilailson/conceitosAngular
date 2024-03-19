@@ -15,7 +15,7 @@ import { ProductsService } from './products/products.service';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'produtos', component: ProductsComponent, children: [
-      { path: ':id', component: ProductsComponent },
+      { path: ':id', component: ProductComponent },
       { path: ':id/editar', component: EditProductComponent },
   ] },
   { path: 'fornecedores', component: SuppliersComponent, children: [
