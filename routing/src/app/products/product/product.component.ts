@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../products.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -9,10 +10,23 @@ import { ProductsService } from '../products.service';
 export class ProductComponent implements OnInit {
   public product?: { id: number, name: string, status: string };
 
-  constructor(private productsService: ProductsService) { }
+  constructor(
+    private productsService: ProductsService,
+    private route: ActivatedRoute
+    ) { }
 
   ngOnInit(): void {
-    this.product = this.productsService.getProduct(1);
+    // const id = +this.route.snapshot.params['id'] //+ ...Converter numero.
+
+    // this.product = this.productsService.getProduct(id);
+
+    // reagindo mudança
+    this.route.params.subscribe(
+      (params) => {
+        this.product = this.productsService.getProduct(+params['id']);
+      }
+    );
+
   }
 
 }

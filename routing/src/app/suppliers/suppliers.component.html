@@ -2,7 +2,7 @@
     <div class="col-12 col-sm-4">
       <div class="list-group">
         <a
-          href="#"
+          [routerLink]="['/fornecedores', supplier.id, supplier.name]"
           class="list-group-item"
           *ngFor="let supplier of suppliers">
           {{ supplier.name }}
